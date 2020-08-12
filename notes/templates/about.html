@@ -1,0 +1,34 @@
+{% extends 'navigation.html' %}
+
+{% block body %}
+{% load static %}
+<style>
+    
+.doabout{
+    color:white;
+    background: linear-gradient(grey,black);
+    margin-top:30px;
+    padding-top: 10px;
+}
+
+.jumbotron{
+    color: black;
+}
+
+</style>
+
+<div class="container">
+    <img src="{% static 'about-us.jpg' %}" style="width:100%">
+    <h2 class="doabout text-center"><b>ABOUT US</b></h2>
+
+    <div class="jumbotron text-center">
+        <h5>This is a simple notes sharing website by SOMYA PRAJAPATI.. 
+        <hr>
+        It is made using django, HTML5, CSS, Javascript, Bootstrap4, Jquery, sqlite... 
+        It would definitely make the work easy :) </h5>
+        <hr><hr>
+    </div>
+
+</div>
+
+{% endblock %}

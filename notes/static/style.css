@@ -1,0 +1,8 @@
+
+.nav-link:hover{
+    background-color: gold;
+    color: black;
+    font-weight: bold;
+    border-radius: 10px;
+}
+
