@@ -1,0 +1,104 @@
+{% extends 'user_nav.html' %}
+
+{% load static %}
+{% block body %}
+
+{% ifequal error "no" %}
+<script>
+    alert('Notes Uploaded Successfully');
+    
+</script>
+{% endifequal %}
+
+{% ifequal error "yes" %}
+<script>
+    alert('Something went Wrong, Try again');
+</script>
+{% endifequal %}
+
+<style>
+    .doabout{
+        color:white;
+        background: linear-gradient(grey,black);
+        margin-top:30px;
+        padding-top: 10px;
+        transition: 0.5s;
+    }
+
+    .bb{
+        margin-left: 205px;
+        padding-left: 30px;
+        padding-right: 30px;
+        transition: 0.5s;
+    }
+
+    .bb:hover{
+        color:snow;
+        background-color: green;
+        transition: 0.5s;
+        font-weight: bold;
+        border-radius: 10px;
+    }
+</style>
+
+<div class="container mt-5">
+    <h2 class="doabout text-center"></i><b>UPLOAD NOTES</b></h2>
+    <div class="row">
+        <div class="col-sm-6">
+            
+            <hr><hr>
+                
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="branch">Branch:</label>
+                    <select class="form-control" name="branch">
+                        <option value="">---Select Branch---</option>
+                        <option value="">Computer Science</option>
+                        <option value="">Electronics</option>
+                        <option value="">Mechanical</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="subject">Subject:</label>
+                    <input type="text" class="form-control" placeholder="Enter subject name" name="subject">
+                </div>
+                 <div class="form-group">
+                    <label for="notesfile">Notes file:</label>
+                    <input type="file" class="form-control" name="notesfile">
+                 </div>
+                <div class="form-group">
+                  <label for="filetype">File type:</label>
+                  <select class="form-control" name="filetype">
+                    <option value="">---Select file type---</option>
+                    <option value="">PDF</option>
+                    <option value="">PPT</option>
+                    <option value="">IMAGE</option>
+                    <option value="">ZIP/RAR</option>
+                    <option value="">TEXT</option>
+                    <option value="">DOC/DOCX</option>
+                </select>
+                </div>
+                <div class="form-group">
+                  <label for="description">Description:</label>
+                  <textarea class="form-control" name="description"></textarea>
+                </div>
+            
+                <div class="form-group form-check">
+                  <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox"> Remember me
+                  </label>
+                </div>
+                <button type="submit" class="bb btn btn-warning">SUBMIT</button><hr><hr>
+              </form>
+              
+        </div>
+        <div class="col-sm-6">
+            <br><br><br>
+            <img src="{% static 'notes.jpg' %}" style="width:80%">
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

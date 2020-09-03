@@ -1,6 +1,7 @@
 from django.contrib import admin
 from django.urls import path
 from notes.views import *
+from django.conf.urls.static import static
 from django.conf import settings
 
 urlpatterns = [
@@ -13,6 +14,7 @@ urlpatterns = [
     path('admin_home/', admin_home, name='admin_home'),
     path('logout/', Logout, name='logout'),
     path('profile/', profile, name='profile'),
+    path('upload_notes/', upload_notes, name='upload_notes'),
     path('', index, name='index')
 
-]
+]+static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
